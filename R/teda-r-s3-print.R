@@ -1,6 +1,14 @@
 #' Print the tedar object
 #'
+#'#' @description Takes a tedar object and prints out the object values.
+#'
+#' @details
+#'
 #' Takes a tedar object and prints out the values within (currently the same as summarize).
+#'
+#' @param x The teda recursive (tedar) object with which to create the print output.
+#' @param ... additional arguments affecting the summary produced.
+#'
 #'
 #' @export
 print.tedar <- function(x, ...){

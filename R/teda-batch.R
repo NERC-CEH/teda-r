@@ -33,6 +33,7 @@
 #'
 #' @family TEDA functions
 #' @seealso \code{\link{teda_r}} for the recursive version of the TEDA framework.
+#' @import stats
 #' @export
 teda_b = function(observations, dist_type = "Euclidean"){
 

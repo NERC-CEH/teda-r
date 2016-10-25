@@ -4,9 +4,17 @@
 \alias{summary.tedab}
 \title{Summarise the tedab object}
 \usage{
-\method{summary}{tedab}(x, ...)
+\method{summary}{tedab}(object, ...)
+}
+\arguments{
+\item{object}{The teda batch (tedab) object with which to create the summary output.}
+
+\item{...}{additional arguments affecting the summary produced.}
 }
 \description{
+Summarises the teda batch object using an S3 method
+}
+\details{
 Takes a tedab object and prints out the following summary details:
 \itemize{
  \item{the number of observations}

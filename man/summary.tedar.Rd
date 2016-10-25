@@ -4,9 +4,17 @@
 \alias{summary.tedar}
 \title{Summarize the tedar object}
 \usage{
-\method{summary}{tedar}(x, ...)
+\method{summary}{tedar}(object, ...)
+}
+\arguments{
+\item{object}{The teda recursive (tedar) object with which to create the summary output.}
+
+\item{...}{additional arguments affecting the summary produced.}
 }
 \description{
-Takes a tedar object and prints out the values within.
+Takes a tedar object and prints out the summary values.
+}
+\details{
+Takes a tedar object and prints out the summary values.
 }
 

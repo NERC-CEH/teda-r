@@ -1,9 +1,20 @@
 #' Plot the tedab object
 #'
-#' Takes a tedab object and plots each metric individually
+#' @description Takes a tedab object and plots each metric individually
 #'
+#' @details
+#'
+#' Takes a tedab object and creates four plots in order of:
+#' eccentricity, typicality, normalised eccentricity, and normalised typicality.
+#'
+#' @param x The teda batch (tedab) object with which to create the plot output.
+#' @param ... additional arguments affecting the summary produced.
+#'
+#'
+#' @import graphics
 #' @export
 plot.tedab <- function(x, ...){
+
 
   par(mfrow = c(2,2))
   plot(x = x$observations,

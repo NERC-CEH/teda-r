@@ -53,7 +53,7 @@ On return, the teda recursive object holds:
 }
 
 It provides generic functions for print and summary, at this moment both
-provide the same output.
+provide the same outout.
 }
 \examples{
 vec = c(20, 12, 10, 20)

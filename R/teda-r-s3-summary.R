@@ -1,25 +1,34 @@
 #' Summarize the tedar object
 #'
-#' Takes a tedar object and prints out the values within.
+#' @description Takes a tedar object and prints out the summary values.
+#'
+#' @details
+#'
+#' Takes a tedar object and prints out the summary values.
+#'
+#' @param object The teda recursive (tedar) object with which to create the summary output.
+#' @param ... additional arguments affecting the summary produced.
+#'
+#'
 #'
 #' @export
-summary.tedar <- function(x, ...){
+summary.tedar <- function(object, ...){
   cat("Current observation stream position (K):\n")
-  cat(x$next_k - 1)
+  cat(object$next_k - 1)
 
-  if (x$next_k > 3) {
+  if (object$next_k > 3) {
     cat("\nEccentricity:\n")
-    cat(x$curr_eccentricity)
+    cat(object$curr_eccentricity)
     cat("\nTypicality:\n")
-    cat(x$curr_typicality)
+    cat(object$curr_typicality)
     cat("\nNormalised Eccentricity:\n")
-    cat(x$curr_norm_eccentricity)
+    cat(object$curr_norm_eccentricity)
     cat("\nNormalised Typicality:\n")
-    cat(x$curr_norm_typicality)
+    cat(object$curr_norm_typicality)
     cat("\nIs the current observation an outlier?\n")
-    cat(x$outlier)
+    cat(object$outlier)
     cat("\nNormalised Eccentricity Threshold:\n")
-    cat(x$ecc_threshold)
+    cat(object$ecc_threshold)
   }else{
     cat("\nThere are not enough observations to generate output.")
   }

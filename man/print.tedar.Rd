@@ -6,7 +6,15 @@
 \usage{
 \method{print}{tedar}(x, ...)
 }
+\arguments{
+\item{x}{The teda recursive (tedar) object with which to create the print output.}
+
+\item{...}{additional arguments affecting the summary produced.}
+}
 \description{
+#' @description Takes a tedar object and prints out the object values.
+}
+\details{
 Takes a tedar object and prints out the values within (currently the same as summarize).
 }
 

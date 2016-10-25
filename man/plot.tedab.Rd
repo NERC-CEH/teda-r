@@ -6,7 +6,16 @@
 \usage{
 \method{plot}{tedab}(x, ...)
 }
+\arguments{
+\item{x}{The teda batch (tedab) object with which to create the plot output.}
+
+\item{...}{additional arguments affecting the summary produced.}
+}
 \description{
 Takes a tedab object and plots each metric individually
+}
+\details{
+Takes a tedab object and creates four plots in order of:
+eccentricity, typicality, normalised eccentricity, and normalised typicality.
 }
 

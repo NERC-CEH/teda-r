@@ -6,7 +6,16 @@
 \usage{
 \method{print}{tedab}(x, ...)
 }
+\arguments{
+\item{x}{The teda batch (tedab) object with which to create the printed output.}
+
+\item{...}{additional arguments affecting the summary produced.}
+}
 \description{
 Takes a tedab object and prints out the values within
+}
+\details{
+Takes a tedab object and prints out each vector in order of:
+eccentricity, typicality, normalised eccentricity, and normalised typicality.
 }
 
