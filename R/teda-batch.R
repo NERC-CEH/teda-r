@@ -52,20 +52,21 @@ teda_b = function(observations, dist_type = "Euclidean"){
 
   # Identify this length of the observation_vector, as it
   #   may be a vector or matrix, with different accessors
-  if (is.vector(observations))
+  if (is.vector(observations)) {
     obs_len = length(observations)
-  else
+  }else{
     obs_len = dim(observations)[1]
+  }
+
+  # NB: Only vector implementation, multivariate currently
+  #  not supported
 
   # Eccentricity: the relative (normalised) accumulated
   #   proximity of that data sample as a fraction of the
   #   accumulated proximity of all other data samples.
   #
   # Calculate eccentricity for each position
-  ecc = c()
-  for (curr in 1:obs_len) {
-    ecc = c(ecc, (2*sum(distance_matrix[curr,])) / spi)
-  }
+  ecc = unname((2 * apply(distance_matrix, 1, sum)) / spi)
 
   # Create the return object holding all the required output,
   #   and set the class for use with generic functions
