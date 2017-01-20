@@ -1,7 +1,7 @@
 Package: teda
 Type: Package
 Title: An Implementation of the Typicality and Eccentricity Data Analysis Framework
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
       person("David", "Ciar", email = "dciar86@ceh.ac.uk", role = c("cre","aut")),
       person("James", "Wright", email = "j.s.wright@liverpool.ac.uk", role = c("aut"))
