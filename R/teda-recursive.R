@@ -73,6 +73,7 @@
 #' @export
 teda_r = function(curr_observation,
                   previous_mean = curr_observation,
+                  previous_scal = 0,
                   previous_var = 0,
                   k = 1,
                   dist_type = "Euclidean"){
@@ -80,11 +81,14 @@ teda_r = function(curr_observation,
   # Calculate the recursive mean value
   rec_mean =  (((k - 1)  / k) * previous_mean) + ((1 / k) * curr_observation)
 
+  # Calculate the recursive mean of scalar product value
+  rec_scal = ((k-1)/k) * previous_scal + (t(curr_observation) %*% curr_observation)/k
+
   # Calculate the recursive variance value
-  rec_var = (((k - 1) / k) * previous_var) + (1 / (k - 1)) * ((curr_observation - rec_mean) ^ 2)
+  rec_var = rec_scal - (t(rec_mean) %*% rec_mean)
 
   # Calculate the recursive eccentricity value
-  rec_ecc = (1 / k) +  (((rec_mean - curr_observation) ^ 2) / (k * rec_var))
+  rec_ecc = (1/k) + ((t(rec_mean - curr_observation) %*% (rec_mean - curr_observation))/(k * rec_var))
 
   # If the initial timestep, set the initial parameter values,
   #  else, use the previous timestep values
@@ -98,6 +102,7 @@ teda_r = function(curr_observation,
   else
     ret_obj$curr_var = round(rec_var, 3)
 
+  ret_obj$curr_scal = round(rec_scal, 3)
   ret_obj$curr_eccentricity = round(rec_ecc, 3)
   ret_obj$curr_typicality = round(1 - rec_ecc, 3)
   ret_obj$curr_norm_eccentricity = round(ret_obj$curr_eccentricity / 2, 3)
