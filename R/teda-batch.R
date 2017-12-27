@@ -79,16 +79,28 @@ teda_b = function(observations, dist_type = "Euclidean"){
 
   }else{
 
-    # If a matrix or dataframe is past to the function, set the
-    #  return object positions to be NA
+    # If a matrix or dataframe is past to the function,
+    # calculate teda for n dimensions
+
+
+    spi = sum(as.matrix(dist(observations,diag = TRUE, upper = TRUE)))
+    distance_matrix = as.matrix(dist(observations,
+                                     diag = TRUE))
+
+    ecc = unname((2 * apply(distance_matrix, 1, sum)) / spi)
+
+    obs_len = nrow(observations)
+
+
+
     ret_obj = c()
-    ret_obj$observations = NA
-    ret_obj$eccentricity = NA
-    ret_obj$typicality = NA
-    ret_obj$norm_eccentricity = NA
-    ret_obj$norm_typicality = NA
-    ret_obj$outlier = NA
-    ret_obj$ecc_threshold = NA
+    ret_obj$observations = observations
+    ret_obj$eccentricity = round(ecc,3)
+    ret_obj$typicality = round(1 - ecc,3)
+    ret_obj$norm_eccentricity = round(ecc / 2,3)
+    ret_obj$norm_typicality = round(ret_obj$typicality / (obs_len - 2), 3)
+    ret_obj$outlier = ret_obj$norm_eccentricity > (1 / obs_len)
+    ret_obj$ecc_threshold = round(1 / obs_len, 3)
     class(ret_obj) = "tedab"
 
     return(ret_obj)
